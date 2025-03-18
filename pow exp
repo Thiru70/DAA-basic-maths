@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class PowerFunction {
+    public static double pow(double x, int n) {
+        if (n == 0) return 1;  
+
+        long exp = n;  
+        if (exp < 0) {
+            x = 1 / x;  
+            exp = -exp;
+        }
+
+        double result = 1.0;
+        while (exp > 0) {
+            if (exp % 2 == 1) { // If n is odd, multiply by x
+                result *= x;
+            }
+            x *= x;  
+            exp /= 2;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+       
+        System.out.print("Enter base (x): ");
+        double x = scanner.nextDouble();
+        
+        System.out.print("Enter exponent (n): ");
+        int n = scanner.nextInt();
+        
+       
+        double result = pow(x, n);
+        System.out.println(x + "^" + n + " = " + result);
+
+        scanner.close();
+    }
+}

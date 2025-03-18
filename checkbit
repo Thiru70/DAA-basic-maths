@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class BitCheck {
+    public static boolean isBitSet(int num, int i) {
+        return (num & (1 << i)) != 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        System.out.print("Enter bit position to check (0-based index): ");
+        int bitPosition = scanner.nextInt();
+        System.out.println(isBitSet(number, bitPosition));
+        scanner.close();
+    }
+}
